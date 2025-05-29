@@ -1,0 +1,165 @@
+/* src/style.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Sisa CSS Anda di bawah ini */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+#app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #d9534f; /* Warna tema bahaya/api */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+h2 {
+    color: #d9534f;
+    border-bottom: 2px solid #f0ad4e;
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+.data-overview, .charts-section, .risk-table-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.data-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 5px solid #f0ad4e; /* Warna aksen */
+}
+
+.data-item .label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.data-item .value {
+    font-size: 1.1em;
+    color: #d9534f;
+}
+
+.charts-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* Line chart lebih besar */
+    gap: 20px;
+}
+
+.chart-container {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    /* box-shadow: 0 1px 5px rgba(0,0,0,0.05); */
+}
+.chart-container-small {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    /* box-shadow: 0 1px 5px rgba(0,0,0,0.05); */
+}
+
+
+#lineChart {
+    max-height: 400px; /* Atur tinggi maksimal line chart */
+}
+#pieChart, #barChart {
+    max-height: 350px; /* Atur tinggi maksimal pie & bar chart */
+}
+
+
+.risk-table-section table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+.risk-table-section th, .risk-table-section td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.risk-table-section th {
+    background-color: #f0ad4e;
+    color: white;
+}
+
+.risk-table-section tbody tr:nth-child(even) {
+    background-color: #fdf5e6; /* Warna zebra ringan */
+}
+
+.risk-table-section td:nth-child(2), .risk-table-section td:nth-child(3) {
+    font-weight: bold;
+}
+
+.status-aman { color: #5cb85c; } /* Hijau */
+.status-waspada { color: #f0ad4e; } /* Kuning */
+.status-bahaya { color: #d9534f; } /* Merah */
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: #333;
+    color: white;
+    border-radius: 8px;
+}
+
+/* Responsif untuk layar lebih kecil */
+@media (max-width: 992px) {
+    .charts-section {
+        grid-template-columns: 1fr 1fr; /* Dua chart per baris */
+    }
+    .chart-container { /* Line chart jadi full width jika dua kolom */
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .data-grid {
+        grid-template-columns: 1fr; /* Satu item data per baris */
+    }
+    .charts-section {
+        grid-template-columns: 1fr; /* Satu chart per baris */
+    }
+    header h1 {
+        font-size: 1.5em;
+    }
+}

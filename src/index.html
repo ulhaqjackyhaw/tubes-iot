@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monitoring Deteksi Kebakaran</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+<body>
+    <div id="app">
+        <header>
+            <h1>🔥 Dashboard Monitoring Deteksi Kebakaran</h1>
+        </header>
+
+        <main>
+            <section class="data-overview">
+                <h2>Data Real-time</h2>
+                <div class="data-grid">
+                    <div class="data-item">
+                        <span class="label">Status Alarm:</span>
+                        <span id="alarm_active" class="value">-</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Status Fuzzy:</span>
+                        <span id="fuzzy_status" class="value">-</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Level Bahaya Fuzzy:</span>
+                        <span id="fuzzy_danger_level" class="value">- %</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Sensor Gas (ppm):</span>
+                        <span id="gas" class="value">-</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Kelembaban (%):</span>
+                        <span id="humidity" class="value">-</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Suhu (°C):</span>
+                        <span id="temperature" class="value">-</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Deteksi Api IR:</span>
+                        <span id="ir_detected_fire" class="value">-</span>
+                    </div>
+                    <div class="data-item">
+                        <span class="label">Timestamp:</span>
+                        <span id="timestamp" class="value">-</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="charts-section">
+                <div class="chart-container">
+                    <h2>Grafik Sensor (Line Chart)</h2>
+                    <canvas id="lineChart"></canvas>
+                </div>
+                <div class="chart-container-small">
+                    <h2>Level Bahaya (Pie Chart)</h2>
+                    <canvas id="pieChart"></canvas>
+                </div>
+                <div class="chart-container-small">
+                    <h2>Nilai Sensor Saat Ini (Bar Chart)</h2>
+                    <canvas id="barChart"></canvas>
+                </div>
+            </section>
+
+            <section class="risk-table-section">
+                <h2>Tabel Risiko</h2>
+                <table id="tableRisk">
+                    <thead>
+                        <tr>
+                            <th>Indikator</th>
+                            <th>Nilai</th>
+                            <th>Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Status Fuzzy</td>
+                            <td id="table_fuzzy_status">-</td>
+                            <td id="table_fuzzy_status_desc">-</td>
+                        </tr>
+                        <tr>
+                            <td>Level Bahaya Fuzzy (%)</td>
+                            <td id="table_fuzzy_danger_level">-</td>
+                            <td id="table_fuzzy_danger_level_desc">-</td>
+                        </tr>
+                        <tr>
+                            <td>Alarm Aktif</td>
+                            <td id="table_alarm_active">-</td>
+                            <td id="table_alarm_active_desc">-</td>
+                        </tr>
+                         <tr>
+                            <td>Deteksi Api IR</td>
+                            <td id="table_ir_detected">-</td>
+                            <td id="table_ir_detected_desc">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <footer>
+            <p>Monitoring Deteksi Kebakaran - &copy; <span id="currentYear"></span></p>
+        </footer>
+    </div>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
